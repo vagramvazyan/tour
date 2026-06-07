@@ -1,0 +1,639 @@
+/* ============================================================
+   БАЗОВЫЕ СТИЛИ
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    color: #f0ede6;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   HERO — ШАПКА (фото слева, текст справа)
+   ============================================================ */
+
+.hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Центрированный контейнер контента шапки */
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+}
+
+/* Общий центрированный контейнер для остального контента */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* Фон: тёплое радиальное свечение */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 45% 50%, #2a1a0e 0%, #0a0a0a 65%);
+}
+
+/* Зернистая текстура поверх фона */
+.hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: .06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+}
+
+
+/* ============================================================
+   ФОТО-КРУГ
+   ============================================================ */
+
+.hero-left {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.hero-photo-wrap {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+/* Внешнее пульсирующее кольцо */
+.hero-photo-ring {
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    border: 1px solid #c97c2a25;
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Второе, более широкое и бледное кольцо */
+.hero-photo-ring2 {
+    position: absolute;
+    inset: -46px;
+    border-radius: 50%;
+    border: 1px solid #c97c2a10;
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite 1.2s;
+}
+
+/* Сам круг с фотографией */
+.hero-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #c97c2a40;
+    background: radial-gradient(ellipse at 38% 28%, #2e1d0f 0%, #0d0b09 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Заглушка, если фото ещё не вставлено */
+.photo-placeholder {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-style: italic;
+    letter-spacing: -.02em;
+    color: #c97c2a28;
+    user-select: none;
+}
+
+
+/* ============================================================
+   ТЕКСТ В HERO (имя артиста, тур, жанры)
+   ============================================================ */
+
+.hero-right {
+    flex: 1;
+    z-index: 1;
+}
+
+.tag {
+    font-size: 28px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #c97c2a;
+    margin-bottom: 20px;
+    animation: fadeUp .6s ease both;
+}
+
+.tag-year {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5em;
+    letter-spacing: 0;
+    text-transform: none;
+    vertical-align: baseline;
+}
+
+.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    line-height: .95;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    animation: fadeUp .6s ease .1s both;
+}
+
+.hero-name em {
+    font-style: italic;
+    font-weight: 400;
+    color: #c97c2a;
+}
+
+.hero-sub {
+    margin-top: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: .03em;
+    color: #9a9080;
+    animation: fadeUp .6s ease .2s both;
+}
+
+
+/* ============================================================
+   АНИМАЦИИ
+   ============================================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: .4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: .8;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   СЕКЦИЯ КОНЦЕРТОВ
+   ============================================================ */
+
+.divider {
+    height: 1px;
+    margin: 0 48px;
+    background: linear-gradient(to right, #c97c2a40, transparent);
+}
+
+.section {
+    padding: 48px 48px 60px;
+}
+
+.section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-style: italic;
+    letter-spacing: .05em;
+    text-transform: none;
+    color: #c97c2a;
+    margin-bottom: 24px;
+}
+
+.concert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ============================================================
+   КАРТОЧКА КОНЦЕРТА
+   ============================================================ */
+
+.concert-card {
+    position: relative;
+    height: 190px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Фоновое фото города (или градиент если фото нет) */
+/* Чтобы добавить фото: <div class="concert-card-bg" style="background-image: url('images/cities/tula.jpg')"> */
+.concert-card-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 50%, #241508 0%, #0d0b08 100%);
+    background-size: cover;
+    background-position: center;
+    transition: transform .5s ease;
+}
+
+/* Тёмный градиент слева — чтобы текст читался поверх фото */
+.concert-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(5, 3, 1, 0.92) 0%,
+        rgba(5, 3, 1, 0.65) 50%,
+        rgba(5, 3, 1, 0.15) 100%
+    );
+}
+
+/* Золотая полоска слева */
+.concert-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #c97c2a, #c97c2a30);
+    z-index: 2;
+}
+
+/* Весь контент поверх фона */
+.concert-card-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 28px 22px 32px;
+}
+
+/* --- Верхняя часть карточки --- */
+
+/* ГЛАВНОЕ: город — самый крупный элемент */
+.card-city {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    color: #f0ede6;
+}
+
+/* Дата под городом */
+.card-date {
+    margin-top: 6px;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #c97c2a;
+}
+
+/* --- Нижняя часть карточки --- */
+
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* Площадка с иконкой-пином */
+.card-venue {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.card-venue:hover {
+    opacity: .7;
+}
+
+.card-venue svg {
+    flex-shrink: 0;
+    opacity: .6;
+}
+
+/* Маленькая подпись-категория (ресторан, клуб и т.д.) */
+.card-venue-label {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: lowercase;
+    font-weight: 300;
+    color: #6a6258;
+    margin-bottom: 1px;
+}
+
+/* Название площадки */
+.card-venue-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: #c0b8a8;
+}
+
+
+/* ============================================================
+   КНОПКИ
+   ============================================================ */
+
+.btn-ticket {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid #c97c2a80;
+    color: #c97c2a;
+    padding: 9px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all .2s;
+}
+
+.btn-ticket:hover {
+    background: #c97c2a;
+    color: #0a0a0a;
+}
+
+/* Метка «нет билетов» вместо кнопки */
+.sold-out {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #3a3530;
+    border: 1px solid #2a2820;
+    padding: 9px 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   ФУТЕР
+   ============================================================ */
+
+.footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    border-top: 1px solid #1e1c18;
+}
+
+.footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #4a453f;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-dev {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #4a453f;
+    text-decoration: none;
+    border-left: 1px solid #2a2820;
+    padding-left: 16px;
+    transition: color .2s;
+}
+
+.footer-dev:hover {
+    color: #c97c2a;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social a {
+    transition: opacity 0.2s;
+}
+
+.social a:hover {
+    opacity: 0.6;
+}
+
+
+/* ============================================================
+   АДАПТИВНОСТЬ — ПЛАНШЕТЫ И ТЕЛЕФОНЫ
+   ============================================================ */
+
+/* ---------- Планшеты (ландшафт) и небольшие ноутбуки ---------- */
+@media (max-width: 1024px) {
+    .hero-inner {
+        gap: 48px;
+        padding: 0 40px;
+    }
+    .hero-name {
+        font-size: 60px;
+    }
+    .hero-photo-wrap,
+    .hero-photo {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+/* ---------- Планшеты (портрет): фото и текст в колонку, по центру ---------- */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+    }
+    .hero-inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 36px;
+        padding: 56px 40px;
+    }
+    /* свечение фона переносим вверх по центру — фото теперь сверху */
+    .hero-bg {
+        background: radial-gradient(ellipse at 50% 35%, #2a1a0e 0%, #0a0a0a 65%);
+    }
+    .hero-name {
+        font-size: 60px;
+    }
+    .hero-sub {
+        font-size: 17px;
+    }
+
+    .section {
+        padding: 40px 40px 52px;
+    }
+    .divider {
+        margin: 0 40px;
+    }
+    .footer-bar {
+        padding: 24px 40px;
+    }
+}
+
+/* ---------- Телефоны ---------- */
+@media (max-width: 600px) {
+    .hero-inner {
+        gap: 28px;
+        padding: 44px 22px;
+    }
+    .hero-photo-wrap,
+    .hero-photo {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-photo-ring {
+        inset: -14px;
+    }
+    .hero-photo-ring2 {
+        inset: -30px;
+    }
+    .photo-placeholder {
+        font-size: 52px;
+    }
+
+    .tag {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+    .hero-name {
+        font-size: 46px;
+    }
+    .hero-sub {
+        font-size: 15px;
+        margin-top: 12px;
+    }
+
+    /* --- секция концертов --- */
+    .section {
+        padding: 28px 16px 40px;
+    }
+    .section-label {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    .divider {
+        margin: 0 16px;
+    }
+
+    /* --- карточка: высота свободная, нижняя строка переносится --- */
+    .concert-card {
+        height: auto;
+        min-height: 150px;
+    }
+    .concert-card-content {
+        height: auto;
+        min-height: 150px;
+        gap: 16px;
+        padding: 18px 18px 18px 22px;
+    }
+    .card-city {
+        font-size: 30px;
+    }
+    .card-date {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+    .card-bottom {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+    /* затемнение плотнее — на узком экране текст ближе к центру */
+    .concert-card-overlay {
+        background: linear-gradient(
+            to right,
+            rgba(5, 3, 1, 0.92) 0%,
+            rgba(5, 3, 1, 0.78) 65%,
+            rgba(5, 3, 1, 0.45) 100%
+        );
+    }
+
+    /* --- футер: в столбик по центру --- */
+    .footer-bar {
+        flex-direction: column;
+        gap: 18px;
+        padding: 22px 16px;
+        text-align: center;
+    }
+    .footer-left {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-dev {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+/* ---------- Очень узкие телефоны ---------- */
+@media (max-width: 380px) {
+    .hero-name {
+        font-size: 40px;
+    }
+    .card-city {
+        font-size: 26px;
+    }
+    .btn-ticket {
+        padding: 9px 16px;
+    }
+}
+
+
+/* ============================================================
+   ДОСТУПНОСТЬ: «уменьшить движение»
+   Отключает пульсацию колец и появление при загрузке для тех,
+   у кого в системе включён режим reduce-motion.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
