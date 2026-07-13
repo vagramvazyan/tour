@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ваграм Вазян</title>
+
+    <!-- Шрифты Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Наши стили -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- ============ HERO (ШАПКА) ============ -->
+      <div class="hero">
+        <div class="hero-bg"></div>
+
+        <!-- Левая часть: фото в круге -->
+        <div class="hero-left">
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-ring2"></div>
+            <div class="hero-photo-ring"></div>
+            <div class="hero-photo">
+              <!-- Положи фото сюда: images/avatar.jpg (квадрат ~600x600px) -->
+              <img src="images/avatar.jpg" alt="Ваграм Вазян" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая часть: подписи -->
+        <div class="hero-right">
+          <div class="tag">
+            Концертный тур <span class="tag-year">2026</span>
+          </div>
+          <div class="hero-name">Ваграм<br /><em>Вазян</em></div>
+          <div class="hero-sub">Лирика · Поп · Шансон</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ============ СПИСОК КОНЦЕРТОВ ============ -->
+      <div class="section">
+        <div class="section-label">Концерты</div>
+        <div class="concert-list">
+          <div class="concert-card">
+            <div class="card-top">
+              <div class="card-date">16 августа</div>
+              <div class="card-city">Уфа</div>
+            </div>
+            <div class="card-bottom">
+              <a
+                class="card-venue"
+                href="https://www.google.com/maps/place/Music+Hall+27/@54.7321837,55.9507366,17z/data=!3m1!4b1!4m6!3m5!1s0x43d93a422ed4e1b1:0x5822e61a6c022e80!8m2!3d54.7321837!4d55.9533115!16s%2Fg%2F11ckvfczvn?entry=ttu&g_ep=EgoyMDI2MDYyMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  class="pin"
+                  viewBox="0 0 24 24"
+                  width="14"
+                  height="14"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+                  />
+                </svg>
+                <span><span class="card-tag">ресторан</span>Music hall</span>
+              </a>
+              <a
+                class="btn-ticket"
+                href="https://6a116cc276d3c1fb6e1c47e6.ticketscloud.org/e/6a54baf7a626035adfc25eac?partner_id=6a116cc276d3c1fb6e1c47e6"
+                target="_blank"
+                rel="noopener"
+                >Билеты</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ПОДВАЛ ============ -->
+      <div class="footer">
+        <div class="footer-left">
+          <span class="footer-name">Ваграм Вазян</span>
+          <a class="footer-dev" href="https://t.me/RafaelARA"
+            >Разработка сайта</a
+          >
+        </div>
+        <div class="social">
+          <a href="https://vk.com/vagramvazyan" target="_blank" rel="noopener"
+            >VK</a
+          >
+          <a
+            href="https://music.yandex.ru/artist/5058902"
+            target="_blank"
+            rel="noopener"
+            >Яндекс Музыка</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
